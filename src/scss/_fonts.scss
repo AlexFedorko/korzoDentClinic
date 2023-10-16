@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Kollektif';
+  src: local('Kollektif'), url("../fonts/kollektif/Kollektif.ttf");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kollektif';
+  src: url("../fonts/kollektif/Kollektif-Bold.ttf");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kollektif';
+  src: url("../fonts/kollektif/Kollektif-Italic.ttf");
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Kollektif';
+  src: url("../fonts/kollektif/Kollektif-BoldItalic.ttf");
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}

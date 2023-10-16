@@ -1,0 +1,156 @@
+@import 'variables';
+
+h1 {
+  @media (min-width: 921px) {
+  color: $text-color-1;
+  font: 700 96rem 'Kollektif', sans-serif;
+  letter-spacing: -0.96px;
+  }
+  @media (max-width: 920px) {
+    color: $text-color-1;
+    font: 700 28rem 'Kollektif', sans-serif;
+    letter-spacing: -0.96px;
+    line-height: 32rem;
+    padding: 0 10rem;
+  }
+}
+
+.span-text-h1 {
+  color: $text-color-2;
+  font: 700 96rem 'Kollektif', sans-serif;
+  letter-spacing: -0.96px;
+  @media (max-width: 920px) {
+    color: $text-color-2;
+    font: 700 28rem 'Kollektif', sans-serif;
+    letter-spacing: -0.96rem;
+    line-height: 32rem;
+  }
+}
+.main-title-ua {
+  max-width: 708rem;
+
+  & h1 {
+    @media (min-width: 921px) {
+      color: $text-color-1;
+      font: 700 90rem 'Kollektif', sans-serif;
+      letter-spacing: -0.96px;
+      line-height: 1;
+    }
+    @media (max-width: 920px) {
+      color: $text-color-1;
+      font: 700 28rem 'Kollektif', sans-serif;
+      letter-spacing: -0.96px;
+      line-height: 32rem;
+      padding: 0 10rem;
+    }
+  }
+  & .span-text-h1 {
+    color: $text-color-2;
+    font: 700 90rem 'Kollektif', sans-serif;
+    letter-spacing: -0.96px;
+    line-height: 1;
+    @media (max-width: 920px) {
+      color: $text-color-2;
+      font: 700 28rem 'Kollektif', sans-serif;
+      letter-spacing: -0.96rem;
+      line-height: 32rem;
+    }
+  }
+}
+.main-title {
+  max-width: 708rem;
+}
+
+@media (max-width: 920px) {
+  .main-title {
+    height: 125rem;
+    margin-bottom: 7rem;
+  }
+}
+
+.main {
+  background: url('/img/mainLogoWoman.jpg') no-repeat right;
+  background-size: 55%;
+  border-radius: 18%;
+@media (max-width: 920px) {
+  background: #fff;
+}
+}
+
+.main-subsection {
+  gap: 5rem;
+  max-width: 848rem;
+  margin-bottom: 144rem;
+}
+
+.main-sub-info-ua {
+  background: #fff;
+  @media (max-width: 920px) {
+  }
+
+  & h3 {
+    color: $text-color-2;
+    font: 700 20rem 'Kollektif', sans-serif;
+    letter-spacing: -0.24px;
+  }
+
+  & p {
+    color: #000;
+    font: 400 17rem 'Kollektif', sans-serif;
+    letter-spacing: 0.63px;
+    margin-bottom: 8rem;
+  }
+
+  & a {
+    color: $text-color-3;
+    font: 400 14rem 'Kollektif', sans-serif;
+    letter-spacing: 1.26px;
+
+    &::after {
+      margin-left: 16rem;
+      display: inline-block;
+      width: 10rem;
+      height: 8rem;
+      content: '';
+      background: url("../img/arrow.svg");
+      background-size: 10rem 8rem;
+    }
+  }
+}
+
+.main-sub-info {
+  background: #fff;
+  @media (max-width: 920px) {
+    display: none;
+  }
+
+  & h3 {
+    color: $text-color-2;
+    font: 700 24rem 'Kollektif', sans-serif;
+    letter-spacing: -0.24px;
+  }
+
+  & p {
+    color: #000;
+    font: 400 21rem 'Kollektif', sans-serif;
+    letter-spacing: 0.63px;
+    margin-bottom: 5rem;
+  }
+
+  & a {
+    color: $text-color-3;
+    font: 400 18rem 'Kollektif', sans-serif;
+    letter-spacing: 1.26px;
+
+    &::after {
+      margin-left: 16rem;
+      display: inline-block;
+      width: 10rem;
+      height: 8rem;
+      content: '';
+      background: url("../img/arrow.svg");
+      background-size: 10rem 8rem;
+    }
+  }
+}
+

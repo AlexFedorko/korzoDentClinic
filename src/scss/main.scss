@@ -1,0 +1,97 @@
+@import "variables";
+@import "reset";
+@import "fonts";
+@import "header";
+@import "main-subsection";
+@import "about";
+@import "services";
+@import "team";
+@import "photos";
+@import "footer";
+
+body {
+  font-family: "Kollektif", sans-serif;
+  scroll-behavior: smooth;
+}
+
+
+/* Hide default scroll bar */
+::-webkit-scrollbar {
+  width: 10rem;
+}
+
+/* Custom scroll bar */
+::-webkit-scrollbar-thumb {
+  background-color: #5BA3BBaa; /* Color scroll */
+  border-radius: 4rem; /* Radius border of scroll */
+}
+
+/* Custom track scrollbar */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color Track */
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+}
+
+.flex-between {
+  @extend .flex;
+  justify-content: space-between;
+}
+
+.flex-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.container {
+  max-width: 1800rem;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  @media (max-width: 920px) {
+    width: 94%;
+  }
+}
+
+h2 {
+  color: $text-color-1;
+  font: 700 64rem 'Kollektif', sans-serif;
+  letter-spacing: -0.64px;
+}
+
+
+p {
+  color: #A7ADAF;
+  font: 400 18rem 'Kollektif', sans-serif;
+  line-height: 36rem; /* 200% */
+  letter-spacing: 1.26rem;
+}
+
+.btn {
+  font: 700 10rem "Kollektif",sans-serif;
+  letter-spacing: 0.7px;
+  border: 0;
+  text-transform: uppercase;
+  padding: 13rem 17rem;
+  cursor: pointer;
+  background-color: $text-color-2;
+  color: #FFF;
+  transition: all .4s;
+  &:hover{
+    filter: brightness(90%);
+  }
+}
+
+@media (max-width: 920px){
+  html{
+    font-size: 0.29vw;
+  }
+}
+
+
+
+
+
