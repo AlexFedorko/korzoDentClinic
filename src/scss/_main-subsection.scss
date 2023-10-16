@@ -2,10 +2,11 @@
 
 h1 {
   @media (min-width: 921px) {
-  color: $text-color-1;
-  font: 700 96rem 'Kollektif', sans-serif;
-  letter-spacing: -0.96px;
+    color: $text-color-1;
+    font: 700 96rem 'Kollektif', sans-serif;
+    letter-spacing: -0.96px;
   }
+
   @media (max-width: 920px) {
     color: $text-color-1;
     font: 700 28rem 'Kollektif', sans-serif;
@@ -19,62 +20,67 @@ h1 {
   color: $text-color-2;
   font: 700 96rem 'Kollektif', sans-serif;
   letter-spacing: -0.96px;
+
   @media (max-width: 920px) {
     color: $text-color-2;
     font: 700 28rem 'Kollektif', sans-serif;
-    letter-spacing: -0.96rem;
+    letter-spacing: -0.96px;
     line-height: 32rem;
   }
 }
+
 .main-title-ua {
   max-width: 708rem;
+}
 
-  & h1 {
-    @media (min-width: 921px) {
-      color: $text-color-1;
-      font: 700 90rem 'Kollektif', sans-serif;
-      letter-spacing: -0.96px;
-      line-height: 1;
-    }
-    @media (max-width: 920px) {
-      color: $text-color-1;
-      font: 700 28rem 'Kollektif', sans-serif;
-      letter-spacing: -0.96px;
-      line-height: 32rem;
-      padding: 0 10rem;
-    }
-  }
-  & .span-text-h1 {
-    color: $text-color-2;
+.main-title-ua h1 {
+  @media (min-width: 921px) {
+    color: $text-color-1;
     font: 700 90rem 'Kollektif', sans-serif;
     letter-spacing: -0.96px;
     line-height: 1;
-    @media (max-width: 920px) {
-      color: $text-color-2;
-      font: 700 28rem 'Kollektif', sans-serif;
-      letter-spacing: -0.96rem;
-      line-height: 32rem;
-    }
+  }
+
+  @media (max-width: 920px) {
+    color: $text-color-1;
+    font: 700 28rem 'Kollektif', sans-serif;
+    letter-spacing: -0.96px;
+    line-height: 32rem;
+    padding: 0 10rem;
   }
 }
-.main-title {
-  max-width: 708rem;
+
+.main-title-ua .span-text-h1 {
+  color: $text-color-2;
+  font: 700 90rem 'Kollektif', sans-serif;
+  letter-spacing: -0.96px;
+  line-height: 1;
+
+  @media (max-width: 920px) {
+    color: $text-color-2;
+    font: 700 28rem 'Kollektif', sans-serif;
+    letter-spacing: -0.96px;
+    line-height: 32rem;
+  }
 }
 
-@media (max-width: 920px) {
-  .main-title {
+.main-title {
+  max-width: 708rem;
+
+  @media (max-width: 920px) {
     height: 125rem;
     margin-bottom: 7rem;
   }
 }
 
 .main {
-  background: url('/img/mainLogoWoman.jpg') no-repeat right;
+  background: url('../img/mainLogoWoman.jpg') no-repeat right;
   background-size: 55%;
   border-radius: 18%;
-@media (max-width: 920px) {
-  background: #fff;
-}
+
+  @media (max-width: 920px) {
+    background: #fff;
+  }
 }
 
 .main-subsection {
@@ -85,6 +91,7 @@ h1 {
 
 .main-sub-info-ua {
   background: #fff;
+
   @media (max-width: 920px) {
   }
 
@@ -120,6 +127,7 @@ h1 {
 
 .main-sub-info {
   background: #fff;
+
   @media (max-width: 920px) {
     display: none;
   }
@@ -153,4 +161,3 @@ h1 {
     }
   }
 }
-

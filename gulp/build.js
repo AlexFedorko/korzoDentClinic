@@ -3,20 +3,20 @@ const gulp = require('gulp');
 // HTML
 const fileInclude = require('gulp-file-include');
 const htmlclean = require('gulp-htmlclean');
-const webpHTML = require('gulp-webp-html');
+// const webpHTML = require('gulp-webp-html');
 
 // SASS
 const sass = require('gulp-sass')(require('sass'));
 const sassGlob = require('gulp-sass-glob');
 const autoprefixer = require('gulp-autoprefixer');
 const csso = require('gulp-csso');
-const webpCss = require('gulp-webp-css');
+// const webpCss = require('gulp-webp-css');
 
 const server = require('gulp-server-livereload');
 const clean = require('gulp-clean');
 const fs = require('fs');
 const sourceMaps = require('gulp-sourcemaps');
-const groupMedia = require('gulp-group-css-media-queries');
+// const groupMedia = require('gulp-group-css-media-queries');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const webpack = require('webpack-stream');
@@ -25,7 +25,7 @@ const changed = require('gulp-changed');
 
 // Images
 const imagemin = require('gulp-imagemin');
-const webp = require('gulp-webp');
+// const webp = require('gulp-webp');
 
 
 gulp.task('clean:build', function (done) {
@@ -58,7 +58,7 @@ gulp.task('html:build', function () {
 		.pipe(changed('./build/'))
 		.pipe(plumber(plumberNotify('HTML')))
 		.pipe(fileInclude(fileIncludeSetting))
-		.pipe(webpHTML())
+		// .pipe(webpHTML())
 		.pipe(htmlclean())
 		.pipe(gulp.dest('./build/'));
 });
@@ -71,8 +71,8 @@ gulp.task('sass:build', function () {
 		.pipe(sourceMaps.init())
 		.pipe(autoprefixer())
 		.pipe(sassGlob())
-		.pipe(webpCss())
-		.pipe(groupMedia())
+		// .pipe(webpCss())
+		// .pipe(groupMedia())
 		.pipe(sass())
 		.pipe(csso())
 		.pipe(sourceMaps.write())
@@ -83,7 +83,7 @@ gulp.task('images:build', function () {
 	return gulp
 		.src('./src/img/**/*')
 		.pipe(changed('./build/img/'))
-		.pipe(webp())
+		// .pipe(webp())
 		.pipe(gulp.dest('./build/img/'))
 		.pipe(gulp.src('./src/img/**/*'))
 		.pipe(changed('./build/img/'))

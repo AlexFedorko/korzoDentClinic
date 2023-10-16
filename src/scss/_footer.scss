@@ -9,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
   @media (max-width: 920px) {
     flex-wrap: wrap;
   }
@@ -23,10 +24,10 @@
     font: 400 19rem 'Kollektif', sans-serif;
     letter-spacing: 0.63px;
     margin-bottom: 17rem;
+
     @media (max-width: 920px) {
       font: 400 19rem 'Kollektif', sans-serif;
       margin-bottom: 5rem;
-
     }
   }
 
@@ -35,6 +36,7 @@
     font: 400 15rem 'Kollektif', sans-serif;
     line-height: 36px; /* 200% */
     letter-spacing: 1.26px;
+
     @media (max-width: 920px) {
       line-height: 32px; /* 200% */
     }
@@ -45,6 +47,7 @@
   margin-top: 20rem;
   gap: 15rem;
   margin-bottom: 8rem;
+
   @media (max-width: 920px) {
     padding-left: 35.37rem;
   }
@@ -98,4 +101,3 @@
   line-height: 36px; /* 200% */
   letter-spacing: 1.26px;
 }
-
