@@ -55,6 +55,9 @@
   font: 700 26rem 'Kollektif', sans-serif;
   line-height: 35rem;
   padding: 10rem 20rem;
+  @media (max-width: 920px) {
+    font: 700 36rem 'Kollektif', sans-serif;
+  }
 }
 
 span {

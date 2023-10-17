@@ -5,6 +5,10 @@
   background: #1E1E1E;
 }
 
+ul {
+  padding: 0;
+}
+
 .footer-items {
   display: flex;
   justify-content: space-between;
@@ -12,6 +16,7 @@
 
   @media (max-width: 920px) {
     flex-wrap: wrap;
+    padding-left: 30rem;
   }
 }
 
@@ -48,9 +53,6 @@
   gap: 15rem;
   margin-bottom: 8rem;
 
-  @media (max-width: 920px) {
-    padding-left: 35.37rem;
-  }
 }
 
 .icon-phone {
@@ -91,7 +93,6 @@
   .footer-last-item {
     font: 400 19rem 'Kollektif', sans-serif;
     margin-bottom: 40rem;
-    padding: 0 0 0 35.37rem;
   }
 }
 
