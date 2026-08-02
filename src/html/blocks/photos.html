@@ -1,44 +1,50 @@
 <section id="photos">
     <div class="container">
-        <div class="swiper mySwiper">
+        <div class="swiper mySwiper" data-reveal="up">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="./img/photo1.jpg" alt="photo1">
+                    <img src="./img/photo1.jpg" alt="photo1" loading="lazy" decoding="async">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./img/photo2.jpg" alt="photo2">
+                    <img src="./img/photo2.jpg" alt="photo2" loading="lazy" decoding="async">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./img/photo3.jpg" alt="photo3">
+                    <img src="./img/photo3.jpg" alt="photo3" loading="lazy" decoding="async">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./img/photo4.jpg" alt="photo4">
+                    <img src="./img/photo4.jpg" alt="photo4" loading="lazy" decoding="async">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./img/photo5.jpg" alt="photo5">
+                    <img src="./img/photo5.jpg" alt="photo5" loading="lazy" decoding="async">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./img/photo6.jpg" alt="photo6">
+                    <img src="./img/photo6.jpg" alt="photo6" loading="lazy" decoding="async">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./img/photo7.jpg" alt="photo7">
+                    <img src="./img/photo7.jpg" alt="photo7" loading="lazy" decoding="async">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./img/photo8.jpg" alt="photo8">
+                    <img src="./img/photo8.jpg" alt="photo8" loading="lazy" decoding="async">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./img/photo9.jpg" alt="photo9">
+                    <img src="./img/photo9.jpg" alt="photo9" loading="lazy" decoding="async">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./img/photo10.jpg" alt="photo10">
+                    <img src="./img/photo10.jpg" alt="photo10" loading="lazy" decoding="async">
                 </div>
                 <div class="swiper-slide">
-                    <img src="./img/photo11.jpg" alt="photo11">
+                    <img src="./img/photo11.jpg" alt="photo11" loading="lazy" decoding="async">
                 </div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
         </div>
+    </div>
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" type="button" aria-label="Закрити">&times;</button>
+        <button class="lightbox-prev" type="button" aria-label="Попереднє фото">&#10094;</button>
+        <img class="lightbox-img" src="" alt="">
+        <button class="lightbox-next" type="button" aria-label="Наступне фото">&#10095;</button>
     </div>
 </section>

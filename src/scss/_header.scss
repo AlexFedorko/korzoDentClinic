@@ -1,7 +1,36 @@
 @import "variables";
 
+@keyframes header-fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-16rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-logo {
+  animation: header-fade-in-down 0.6s $ease-out both;
+}
+
+.nav {
+  animation: header-fade-in-down 0.6s $ease-out 0.1s both;
+}
+
 .header {
   min-height: 96rem;
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  background: #fff;
+  transition: box-shadow $transition-base $ease-out, min-height $transition-base $ease-out;
+
+  &.header--scrolled {
+    min-height: 76rem;
+    box-shadow: 0 8rem 30rem rgba(0, 0, 0, 0.08);
+  }
 
   .menu {
     @media (min-width: 921px) {
@@ -21,21 +50,46 @@
       padding: 30rem 40rem;
       text-align: left;
       gap: 41rem;
-      transition: 0.4s;
+      transition: transform $transition-base $ease-out;
       transform: translateX(101%);
     }
   }
 
   a {
+    position: relative;
     color: $text-color-1;
-    font: 700 12rem "Kollektif", sans-serif;
+    font: 700 12rem "Manrope", sans-serif;
     letter-spacing: 1.2px;
-    transition: all 0.4s;
+    transition: color $transition-base $ease-out;
 
     &:hover {
       color: #5BA3BB;
-      font: 700 12rem 'Kollektif', sans-serif;
-      letter-spacing: 1.2px;
+    }
+
+    &.active {
+      color: #5BA3BB;
+    }
+
+    &.menu-link {
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -6rem;
+        height: 2rem;
+        background: $text-color-2;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform $transition-base $ease-out;
+      }
+
+      &:hover::after,
+      &.active::after {
+        transform: scaleX(1);
+      }
     }
   }
 }
@@ -53,34 +107,35 @@
 .nav-logo-text {
   @media (min-width: 921px) {
     margin-left: 10rem;
-    font: 700 24rem 'Kollektif', sans-serif;
+    font: 700 24rem 'Manrope', sans-serif;
     color: #282828;
     letter-spacing: 0.24px;
   }
 
   @media (max-width: 920px) {
     margin-left: 10rem;
-    font: 700 20rem 'Kollektif', sans-serif;
+    font: 700 20rem 'Manrope', sans-serif;
     color: #282828;
     letter-spacing: 0.24px;
   }
 
   .nav-logo-text-span {
     color: #5BA3BB;
-    font: 700 20rem 'Kollektif', sans-serif;
+    font: 700 20rem 'Manrope', sans-serif;
     letter-spacing: 0.24px;
   }
 }
 
 .nav-logo-text-span {
   color: #5BA3BB;
-  font: 700 24rem 'Kollektif', sans-serif;
+  font: 700 24rem 'Manrope', sans-serif;
   letter-spacing: 0.24px;
 }
 
 .menu-lang {
   display: flex;
   gap: 10rem;
+  animation: header-fade-in-down 0.6s $ease-out 0.2s both;
 
   & .menu-lang,
   a:nth-child(3) {
@@ -103,13 +158,16 @@
 
 #burger-btn {
   position: relative;
-  transform: translateX(120rem);
   z-index: 20;
   background: transparent;
   color: black;
   border: 0;
   font-size: 25rem;
   padding: 10rem 10rem;
+
+  @media (min-width: 921px) {
+    transform: translateX(120rem);
+  }
 
   &::after {
     content: '☰';

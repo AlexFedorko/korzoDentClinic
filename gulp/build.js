@@ -3,14 +3,14 @@ const gulp = require('gulp');
 // HTML
 const fileInclude = require('gulp-file-include');
 const htmlclean = require('gulp-htmlclean');
-// const webpHTML = require('gulp-webp-html');
+const webpHTML = require('gulp-webp-html');
 
 // SASS
 const sass = require('gulp-sass')(require('sass'));
 const sassGlob = require('gulp-sass-glob');
 const autoprefixer = require('gulp-autoprefixer');
 const csso = require('gulp-csso');
-// const webpCss = require('gulp-webp-css');
+const webpCss = require('gulp-webp-css');
 
 const server = require('gulp-server-livereload');
 const clean = require('gulp-clean');
@@ -25,7 +25,7 @@ const changed = require('gulp-changed');
 
 // Images
 const imagemin = require('gulp-imagemin');
-// const webp = require('gulp-webp');
+const webp = require('gulp-webp');
 
 
 gulp.task('clean:build', function (done) {
@@ -58,7 +58,7 @@ gulp.task('html:build', function () {
 		.pipe(changed('./build/'))
 		.pipe(plumber(plumberNotify('HTML')))
 		.pipe(fileInclude(fileIncludeSetting))
-		// .pipe(webpHTML())
+		// .pipe(webpHTML()) — crashes on real <img> tags; no .webp variants are generated anyway
 		.pipe(htmlclean())
 		.pipe(gulp.dest('./build/'));
 });
@@ -69,11 +69,11 @@ gulp.task('sass:build', function () {
 		.pipe(changed('./build/css/'))
 		.pipe(plumber(plumberNotify('SCSS')))
 		.pipe(sourceMaps.init())
-		.pipe(autoprefixer())
 		.pipe(sassGlob())
-		// .pipe(webpCss())
-		// .pipe(groupMedia())
 		.pipe(sass())
+		.pipe(autoprefixer())
+		// .pipe(webpCss()) — crashes on any CSS containing comments (no .jpg/.png backgrounds to convert anyway)
+		// .pipe(groupMedia())
 		.pipe(csso())
 		.pipe(sourceMaps.write())
 		.pipe(gulp.dest('./build/css/'));
@@ -83,7 +83,6 @@ gulp.task('images:build', function () {
 	return gulp
 		.src('./src/img/**/*')
 		.pipe(changed('./build/img/'))
-		// .pipe(webp())
 		.pipe(gulp.dest('./build/img/'))
 		.pipe(gulp.src('./src/img/**/*'))
 		.pipe(changed('./build/img/'))
@@ -91,9 +90,17 @@ gulp.task('images:build', function () {
 		.pipe(gulp.dest('./build/img/'));
 });
 
+gulp.task('images:webp', function () {
+	return gulp
+		.src('./src/img/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}')
+		.pipe(changed('./build/img/', { extension: '.webp' }))
+		.pipe(webp({ quality: 85 }))
+		.pipe(gulp.dest('./build/img/'));
+});
+
 gulp.task('fonts:build', function () {
 	return gulp
-		.src('./src/fonts/**/*')
+		.src('./src/fonts/**/*', { allowEmpty: true })
 		.pipe(changed('./build/fonts/'))
 		.pipe(gulp.dest('./build/fonts/'));
 });

@@ -73,7 +73,7 @@ gulp.task('images:dev', function () {
 
 gulp.task('fonts:dev', function () {
 	return gulp
-		.src('./src/fonts/**/*')
+		.src('./src/fonts/**/*', { allowEmpty: true })
 		.pipe(changed('./build/fonts/'))
 		.pipe(gulp.dest('./build/fonts/'));
 });

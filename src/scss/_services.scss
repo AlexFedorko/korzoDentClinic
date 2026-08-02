@@ -9,6 +9,12 @@
     padding-bottom: 25rem;
     margin-bottom: 25rem;
   }
+
+  .container {
+    @media (max-width: 920px) {
+      flex-direction: column;
+    }
+  }
 }
 
 .services-title {
@@ -25,64 +31,118 @@
 
 .services-items {
   margin-top: 75rem;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32rem;
   padding: 40rem;
-  flex-wrap: wrap;
   margin-left: 55rem;
+
+  & .services-item {
+    padding: 24rem;
+    border-radius: 20rem;
+    background: #fff;
+    box-shadow: 0 10rem 30rem rgba(40, 40, 40, 0.06);
+    transition: transform $transition-base $ease-out, box-shadow $transition-base $ease-out;
+
+    &:hover {
+      transform: translateY(-8rem);
+      box-shadow: 0 20rem 45rem rgba(91, 163, 187, 0.18);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    @media (max-width: 920px) {
+      padding: 18rem;
+      border-radius: 16rem;
+    }
+  }
+
+  & .services-filler {
+    @media (max-width: 920px) {
+      display: none;
+    }
+  }
 
   & img {
     width: 48rem;
     height: 48rem;
+    padding: 12rem;
+    box-sizing: content-box;
+    border-radius: 50%;
+    background: rgba(91, 163, 187, 0.12);
+    transition: transform $transition-base $ease-out, background $transition-base $ease-out;
 
     @media (max-width: 920px) {
-      width: 25rem;
-      height: 25rem;
+      width: 22rem;
+      height: 22rem;
+      padding: 9rem;
     }
+  }
+
+  & .services-item:hover img {
+    transform: scale(1.12) rotate(-6deg);
+    background: rgba(91, 163, 187, 0.22);
   }
 
   & h3 {
     margin-top: 19rem;
     margin-bottom: 17rem;
     color: #000;
-    font: 400 20rem 'Kollektif', sans-serif;
+    font: 400 20rem 'Manrope', sans-serif;
     letter-spacing: 0.63px;
 
     @media (max-width: 920px) {
       margin: 0;
-      padding-bottom: 5rem;
-      padding-top: 8rem;
+      font: 700 17rem 'Manrope', sans-serif;
     }
   }
 
   & p {
     margin-bottom: 46rem;
     color: $text-color-3;
-    font: 400 18rem 'Kollektif', sans-serif;
+    font: 400 18rem 'Manrope', sans-serif;
     line-height: 36px; /* 200% */
     letter-spacing: 1.26px;
     max-width: 272rem;
 
     @media (max-width: 920px) {
-      margin-bottom: 30rem;
-      line-height: 25rem;
+      margin-bottom: 0;
+      margin-top: 12rem;
+      line-height: 22rem;
     }
   }
 }
 
 @media (max-width: 920px) {
   .services-items {
+    grid-template-columns: 1fr;
     margin: 0;
+    gap: 12rem;
     padding: 10rem 10rem;
   }
 }
 
 @media (max-width: 920px) {
-  .services-item, img, h3 {
+  .services-item {
     display: flex;
-    gap: 8rem;
+    gap: 12rem;
     flex-wrap: wrap;
     align-items: center;
+
+    & > img {
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    & > h3 {
+      flex: 1;
+    }
+
+    & > p {
+      flex-basis: 100%;
+    }
   }
 }
 

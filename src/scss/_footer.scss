@@ -26,19 +26,19 @@ ul {
 
   & h3 {
     color: #FFF;
-    font: 400 19rem 'Kollektif', sans-serif;
+    font: 400 19rem 'Manrope', sans-serif;
     letter-spacing: 0.63px;
     margin-bottom: 17rem;
 
     @media (max-width: 920px) {
-      font: 400 19rem 'Kollektif', sans-serif;
+      font: 400 19rem 'Manrope', sans-serif;
       margin-bottom: 5rem;
     }
   }
 
   & li {
     color: #A7ADAF;
-    font: 400 15rem 'Kollektif', sans-serif;
+    font: 400 15rem 'Manrope', sans-serif;
     line-height: 36px; /* 200% */
     letter-spacing: 1.26px;
 
@@ -53,25 +53,18 @@ ul {
   gap: 15rem;
   margin-bottom: 8rem;
 
-}
-
-.icon-phone {
-  display: flex;
-  align-items: center;
-  gap: 15rem;
-
   & a {
-    color: #A7ADAF;
-    font: 400 15rem 'Kollektif', sans-serif;
-    line-height: 36rem; /* 200% */
-    letter-spacing: 1.26rem;
+    display: flex;
+    transition: transform $transition-base $ease-out, opacity $transition-base $ease-out;
   }
 
   & a:hover {
-    color: $text-color-2;
+    transform: translateY(-4rem) scale(1.1);
+    opacity: 0.85;
   }
 }
 
+.icon-phone,
 .icon-email {
   display: flex;
   align-items: center;
@@ -79,9 +72,10 @@ ul {
 
   & a {
     color: #A7ADAF;
-    font: 400 15rem 'Kollektif', sans-serif;
+    font: 400 15rem 'Manrope', sans-serif;
     line-height: 36rem; /* 200% */
     letter-spacing: 1.26rem;
+    transition: color $transition-fast $ease-out;
   }
 
   & a:hover {
@@ -91,14 +85,14 @@ ul {
 
 @media (max-width: 920px) {
   .footer-last-item {
-    font: 400 19rem 'Kollektif', sans-serif;
+    font: 400 19rem 'Manrope', sans-serif;
     margin-bottom: 40rem;
   }
 }
 
 .footer-last-item, p {
   color: #A7ADAF;
-  font: 400 15rem 'Kollektif', sans-serif;
+  font: 400 15rem 'Manrope', sans-serif;
   line-height: 36px; /* 200% */
   letter-spacing: 1.26px;
 }

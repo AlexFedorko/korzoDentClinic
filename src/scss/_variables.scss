@@ -2,3 +2,8 @@ $width-for-mobile: 780px;
 $text-color-1: #282828;
 $text-color-2:  #5BA3BB;
 $text-color-3: #A7ADAF;
+
+$ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+$transition-fast: 0.25s;
+$transition-base: 0.35s;
+$transition-slow: 0.5s;

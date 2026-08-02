@@ -1,32 +1,37 @@
-const btnBurgerMenu = document.getElementById('burger-btn');
-const mobMenu = document.querySelector('.menu');
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-if (mobMenu) {
-    mobMenu.addEventListener('click', (e) => {
-        if (e.target.classList.contains('menu-link')) {
-            document.body.classList.remove('menu-active');
-        }
-    })
-}
+import { initHeader } from './modules/header';
+import { initHeroAnimations } from './modules/heroAnimations';
+import { initScrollReveals } from './modules/scrollReveals';
+import { initCounters } from './modules/counters';
+import { initLightbox } from './modules/lightbox';
+import { initCtaFloat } from './modules/ctaFloat';
+import { prefersReducedMotion } from './modules/motionPreference';
 
-if (btnBurgerMenu) {
-    btnBurgerMenu.addEventListener('click', () => {
-        document.body.classList.toggle('menu-active');
-    })
+gsap.registerPlugin(ScrollTrigger);
+
+initHeader();
+initLightbox();
+initCtaFloat();
+initCounters();
+
+if (!prefersReducedMotion) {
+    initHeroAnimations();
+    initScrollReveals();
 }
 
 window.addEventListener('load', () => {
-    new Swiper(".mySwiper", {
+    new Swiper('.mySwiper', {
         pagination: {
-            el: ".swiper-pagination",
-            type: "progressbar",
+            el: '.swiper-pagination',
+            type: 'progressbar',
         },
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         },
     });
-})
 
-
-
+    ScrollTrigger.refresh();
+});

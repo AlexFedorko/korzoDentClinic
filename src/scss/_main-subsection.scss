@@ -1,34 +1,5 @@
 @import 'variables';
 
-h1 {
-  @media (min-width: 921px) {
-    color: $text-color-1;
-    font: 700 96rem 'Kollektif', sans-serif;
-    letter-spacing: -0.96px;
-  }
-
-  @media (max-width: 920px) {
-    color: $text-color-1;
-    font: 700 28rem 'Kollektif', sans-serif;
-    letter-spacing: -0.96px;
-    line-height: 32rem;
-    padding: 0 10rem;
-  }
-}
-
-.span-text-h1 {
-  color: $text-color-2;
-  font: 700 96rem 'Kollektif', sans-serif;
-  letter-spacing: -0.96px;
-
-  @media (max-width: 920px) {
-    color: $text-color-2;
-    font: 700 28rem 'Kollektif', sans-serif;
-    letter-spacing: -0.96px;
-    line-height: 32rem;
-  }
-}
-
 .main-title-ua {
   max-width: 708rem;
 }
@@ -36,14 +7,14 @@ h1 {
 .main-title-ua h1 {
   @media (min-width: 921px) {
     color: $text-color-1;
-    font: 700 90rem 'Kollektif', sans-serif;
+    font: 700 90rem 'Manrope', sans-serif;
     letter-spacing: -0.96px;
     line-height: 1;
   }
 
   @media (max-width: 920px) {
     color: $text-color-1;
-    font: 700 28rem 'Kollektif', sans-serif;
+    font: 700 28rem 'Manrope', sans-serif;
     letter-spacing: -0.96px;
     line-height: 32rem;
     padding: 0 10rem;
@@ -52,13 +23,13 @@ h1 {
 
 .main-title-ua .span-text-h1 {
   color: $text-color-2;
-  font: 700 90rem 'Kollektif', sans-serif;
+  font: 700 90rem 'Manrope', sans-serif;
   letter-spacing: -0.96px;
   line-height: 1;
 
   @media (max-width: 920px) {
     color: $text-color-2;
-    font: 700 28rem 'Kollektif', sans-serif;
+    font: 700 28rem 'Manrope', sans-serif;
     letter-spacing: -0.96px;
     line-height: 32rem;
   }
@@ -74,12 +45,25 @@ h1 {
 }
 
 .main {
-  background: url('../img/mainLogoWoman.jpg') no-repeat right;
-  background-size: 55%;
+  @media (max-width: 920px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.main-hero-photo {
+  width: 50%;
+  max-width: 620rem;
+  height: 620rem;
+  object-fit: cover;
   border-radius: 18%;
 
   @media (max-width: 920px) {
-    background: #fff;
+    width: 100%;
+    max-width: 100%;
+    height: 260rem;
+    border-radius: 24rem;
+    margin: 16rem 0 32rem;
   }
 }
 
@@ -92,25 +76,22 @@ h1 {
 .main-sub-info-ua {
   background: #fff;
 
-  @media (max-width: 920px) {
-  }
-
   & h3 {
     color: $text-color-2;
-    font: 700 20rem 'Kollektif', sans-serif;
+    font: 700 20rem 'Manrope', sans-serif;
     letter-spacing: -0.24px;
   }
 
   & p {
     color: #000;
-    font: 400 17rem 'Kollektif', sans-serif;
+    font: 400 17rem 'Manrope', sans-serif;
     letter-spacing: 0.63px;
     margin-bottom: 8rem;
   }
 
   & a {
     color: $text-color-3;
-    font: 400 14rem 'Kollektif', sans-serif;
+    font: 400 14rem 'Manrope', sans-serif;
     letter-spacing: 1.26px;
 
     &::after {
@@ -134,20 +115,20 @@ h1 {
 
   & h3 {
     color: $text-color-2;
-    font: 700 24rem 'Kollektif', sans-serif;
+    font: 700 24rem 'Manrope', sans-serif;
     letter-spacing: -0.24px;
   }
 
   & p {
     color: #000;
-    font: 400 21rem 'Kollektif', sans-serif;
+    font: 400 21rem 'Manrope', sans-serif;
     letter-spacing: 0.63px;
     margin-bottom: 5rem;
   }
 
   & a {
     color: $text-color-3;
-    font: 400 18rem 'Kollektif', sans-serif;
+    font: 400 18rem 'Manrope', sans-serif;
     letter-spacing: 1.26px;
 
     &::after {

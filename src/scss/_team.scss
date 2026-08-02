@@ -8,12 +8,17 @@
     max-width: 520rem;
     min-height: 250rem;
     box-shadow: 10rem 8rem #5BA3BBaa;
+    transition: transform $transition-slow $ease-out;
     @media (max-width: 920px) {
       width: 100%;
       height: auto;
       box-shadow: 0 0 0;
       border-radius: 10%;
     }
+  }
+
+  &:hover img {
+    transform: translateY(-6rem);
   }
 }
 
@@ -26,19 +31,19 @@
 
   & h2 {
     color: #282828;
-    font: 700 64rem 'Kollektif', sans-serif;
+    font: 700 64rem 'Manrope', sans-serif;
     letter-spacing: -0.64rem;
     @media  (max-width: 920px) {
-      display: none;
       font-size: 24rem;
-      line-height: 25rem;
+      line-height: 30rem;
       padding: 10rem 10rem;
+      text-align: center;
     }
   }
 
   & p {
     color: #A7ADAF;
-    font: 400 18rem 'Kollektif', sans-serif;
+    font: 400 18rem 'Manrope', sans-serif;
     line-height: 36px; /* 200% */
     max-width: 560rem;
     margin-top: 40rem;
@@ -52,11 +57,11 @@
 }
 
 .team-title {
-  font: 700 26rem 'Kollektif', sans-serif;
+  font: 700 26rem 'Manrope', sans-serif;
   line-height: 35rem;
   padding: 10rem 20rem;
   @media (max-width: 920px) {
-    font: 700 36rem 'Kollektif', sans-serif;
+    font: 700 36rem 'Manrope', sans-serif;
   }
 }
 
@@ -74,12 +79,17 @@ span {
     max-width: 500rem;
     min-height: 250rem;
     box-shadow: 10rem 8rem #5BA3BBaa;
+    transition: transform $transition-slow $ease-out;
     @media (max-width: 920px) {
       width: 330rem;
       height: auto;
       box-shadow: 0 0 0;
       border-radius: 10%;
     }
+  }
+
+  &:hover img {
+    transform: translateY(-6rem);
   }
 }
 
@@ -90,6 +100,7 @@ span {
     max-width: 460rem;
     min-height: 250rem;
     box-shadow: 10rem 8rem #5BA3BBaa;
+    transition: transform $transition-slow $ease-out;
     @media (max-width: 920px) {
       width: 100%;
       height: auto;
@@ -97,10 +108,14 @@ span {
       border-radius: 10%;
     }
   }
+
+  &:hover img {
+    transform: translateY(-6rem);
+  }
 }
 
 @media (max-width: 920px) {
-  .container {
+  #team .container {
     display: flex;
     flex-wrap: wrap;
   }
