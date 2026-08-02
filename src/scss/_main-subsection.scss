@@ -1,10 +1,12 @@
 @import 'variables';
 
-.main-title-ua {
+.main-title-ua,
+.main-title {
   max-width: 708rem;
 }
 
-.main-title-ua h1 {
+.main-title-ua h1,
+.main-title h1 {
   @media (min-width: 921px) {
     color: $text-color-1;
     font: 700 90rem 'Manrope', sans-serif;
@@ -21,7 +23,8 @@
   }
 }
 
-.main-title-ua .span-text-h1 {
+.main-title-ua .span-text-h1,
+.main-title .span-text-h1 {
   color: $text-color-2;
   font: 700 90rem 'Manrope', sans-serif;
   letter-spacing: -0.96px;
@@ -35,12 +38,24 @@
   }
 }
 
-.main-title {
-  max-width: 708rem;
-
+.main-title,
+.main-title-ua {
   @media (max-width: 920px) {
-    height: 125rem;
     margin-bottom: 7rem;
+  }
+}
+
+#main {
+  @media (max-width: 920px) {
+    // Fill the first screen so the hero reads as a complete, deliberate
+    // "start" instead of trailing off into a sliver of the next section.
+    // 96rem matches .header's fixed height, already reserved via
+    // body's padding-top (see main.scss) — kept in sync with that value.
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: calc(100svh - 96rem);
   }
 }
 
@@ -48,6 +63,44 @@
   @media (max-width: 920px) {
     flex-direction: column;
     align-items: stretch;
+    // .flex-between's justify-content:space-between is meant for the
+    // desktop side-by-side row; in column mode it would otherwise stretch
+    // to fill the section's height and shove the photo way down.
+    justify-content: flex-start;
+  }
+}
+
+.main-scroll-cue {
+  display: none;
+
+  @media (max-width: 920px) {
+    display: flex;
+    justify-content: center;
+    margin-top: 12rem;
+    opacity: 0;
+    animation: header-fade-in 0.6s $ease-out 1s both;
+  }
+
+  & span {
+    display: block;
+    width: 18rem;
+    height: 18rem;
+    border-right: 2rem solid $text-color-2;
+    border-bottom: 2rem solid $text-color-2;
+    transform: rotate(45deg);
+    animation: scroll-cue-bounce 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes scroll-cue-bounce {
+  0%, 100% {
+    transform: rotate(45deg) translate(0, 0);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: rotate(45deg) translate(4rem, 4rem);
+    opacity: 1;
   }
 }
 
@@ -71,6 +124,14 @@
   gap: 5rem;
   max-width: 848rem;
   margin-bottom: 144rem;
+
+  // Defensive: even with .only-desktop hiding this block's children,
+  // the block itself only becomes display:none via that same class —
+  // if it's ever missing, this unconditional margin would still reserve
+  // space for an empty row. Zero it out below the desktop breakpoint too.
+  @media (max-width: 920px) {
+    margin-bottom: 0;
+  }
 }
 
 .main-sub-info-ua {

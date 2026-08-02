@@ -1,0 +1,122 @@
+@import 'variables';
+
+.legal-page {
+  padding: 190rem 0 145rem;
+
+  @media (max-width: 920px) {
+    padding: 130rem 0 60rem;
+  }
+}
+
+.legal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8rem;
+  margin-bottom: 40rem;
+  color: $text-color-2;
+  font: 700 10rem 'Manrope', sans-serif;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  transition: opacity $transition-fast $ease-out;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 10rem;
+    height: 8rem;
+    background: url('../img/arrow.svg');
+    background-size: 10rem 8rem;
+    transform: rotate(180deg);
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @media (max-width: 920px) {
+    margin: 0 0 24rem 10rem;
+  }
+}
+
+.legal-hero {
+  max-width: 800rem;
+  margin-bottom: 80rem;
+
+  @media (max-width: 920px) {
+    margin-bottom: 40rem;
+    padding: 0 10rem;
+  }
+}
+
+.legal-icon {
+  display: block;
+  width: 56rem;
+  height: 56rem;
+  padding: 14rem;
+  box-sizing: content-box;
+  border-radius: 50%;
+  background: rgba(91, 163, 187, 0.12);
+  margin-bottom: 24rem;
+}
+
+.legal-eyebrow {
+  display: inline-block;
+  color: $text-color-2;
+  font: 700 12rem 'Manrope', sans-serif;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 16rem;
+}
+
+.legal-hero h1 {
+  color: $text-color-1;
+  font: 700 56rem 'Manrope', sans-serif;
+  letter-spacing: -0.56px;
+  line-height: 1.15;
+  margin-bottom: 20rem;
+
+  @media (max-width: 920px) {
+    font-size: 30rem;
+    line-height: 1.25;
+  }
+}
+
+.legal-updated {
+  color: $text-color-3;
+  font: 400 14rem 'Manrope', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.legal-content {
+  max-width: 800rem;
+  display: flex;
+  flex-direction: column;
+  gap: 56rem;
+
+  @media (max-width: 920px) {
+    padding: 0 10rem;
+    gap: 36rem;
+  }
+}
+
+.legal-section h2 {
+  font-size: 26rem;
+  letter-spacing: -0.26px;
+  margin-bottom: 16rem;
+
+  @media (max-width: 920px) {
+    font-size: 20rem;
+  }
+}
+
+.legal-section p {
+  margin-bottom: 12rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.legal-cta {
+  margin-top: 8rem;
+}

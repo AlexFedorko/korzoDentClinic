@@ -14,14 +14,21 @@ export function initScrollReveals() {
         const stagger = el.hasAttribute('data-reveal-stagger');
         const targets = stagger ? el.children : el;
 
-        const from = { opacity: 0, scale: 0.94, duration: 0.9, ease: 'back.out(1.6)' };
-        if (dir === 'left') from.x = -60;
-        else if (dir === 'right') from.x = 60;
-        else from.y = mobile ? 24 : 50;
+        // Mobile skips the scale + overshoot easing: cheaper to composite
+        // on lower-powered GPUs and less likely to visibly stall mid-animation.
+        const from = mobile
+            ? { opacity: 0, y: 24, duration: 0.5, ease: 'power2.out' }
+            : { opacity: 0, scale: 0.94, duration: 0.9, ease: 'back.out(1.6)' };
+
+        if (!mobile) {
+            if (dir === 'left') from.x = -60;
+            else if (dir === 'right') from.x = 60;
+            else from.y = 50;
+        }
 
         gsap.from(targets, {
             ...from,
-            stagger: stagger ? 0.12 : 0,
+            stagger: stagger ? (mobile ? 0.08 : 0.12) : 0,
             scrollTrigger: {
                 trigger: el,
                 start: 'top 90%',

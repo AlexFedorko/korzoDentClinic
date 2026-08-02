@@ -22,16 +22,18 @@ if (!prefersReducedMotion) {
 }
 
 window.addEventListener('load', () => {
-    new Swiper('.mySwiper', {
-        pagination: {
-            el: '.swiper-pagination',
-            type: 'progressbar',
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
+    if (document.querySelector('.mySwiper')) {
+        new Swiper('.mySwiper', {
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'progressbar',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    }
 
     ScrollTrigger.refresh();
 });

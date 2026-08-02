@@ -2,7 +2,67 @@
 
 #footer {
   min-height: 300rem;
-  background: #1E1E1E;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(1000rem 500rem at 12% -10%, rgba(91, 163, 187, 0.22), transparent 60%),
+    radial-gradient(800rem 500rem at 100% 110%, rgba(91, 163, 187, 0.14), transparent 55%),
+    #14171a;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(91, 163, 187, 0.5), transparent);
+  }
+}
+
+.footer-cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24rem;
+  padding-top: 56rem;
+  padding-bottom: 48rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  & h3 {
+    color: #fff;
+    font: 700 32rem 'Manrope', sans-serif;
+    letter-spacing: -0.32px;
+    margin-bottom: 8rem;
+  }
+
+  & p {
+    color: #A7ADAF;
+    font: 400 15rem 'Manrope', sans-serif;
+    line-height: 1.6;
+    max-width: 420rem;
+  }
+
+  @media (max-width: 920px) {
+    padding-top: 32rem;
+    padding-bottom: 28rem;
+    justify-content: center;
+    text-align: center;
+
+    & h3 {
+      font-size: 22rem;
+    }
+
+    & p {
+      max-width: 100%;
+    }
+  }
+}
+
+.footer-cta-btn {
+  flex-shrink: 0;
 }
 
 ul {
@@ -46,22 +106,43 @@ ul {
       line-height: 32px; /* 200% */
     }
   }
+
+  & li a {
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    transition: color $transition-fast $ease-out;
+
+    &:hover {
+      color: $text-color-2;
+    }
+  }
 }
 
 .footer-item-icons {
   margin-top: 20rem;
-  gap: 15rem;
+  gap: 12rem;
   margin-bottom: 8rem;
 
   & a {
     display: flex;
-    transition: transform $transition-base $ease-out, opacity $transition-base $ease-out;
+    align-items: center;
+    justify-content: center;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    transition: transform $transition-base $ease-out, background $transition-base $ease-out;
   }
 
   & a:hover {
-    transform: translateY(-4rem) scale(1.1);
-    opacity: 0.85;
+    transform: translateY(-4rem) scale(1.08);
+    background: $text-color-2;
   }
+}
+
+.footer-address {
+  display: inline-block;
 }
 
 .icon-phone,

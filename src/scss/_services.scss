@@ -6,8 +6,9 @@
   margin-bottom: 145rem;
 
   @media (max-width: 920px) {
-    padding-bottom: 25rem;
-    margin-bottom: 25rem;
+    padding-top: 56rem;
+    padding-bottom: 40rem;
+    margin-bottom: 32rem;
   }
 
   .container {
@@ -17,17 +18,20 @@
   }
 }
 
+.service-title-text span {
+  color: $text-color-2;
+}
+
 .services-title {
   margin-top: 132rem;
   margin-bottom: 428rem;
   max-width: 516rem;
 
   @media (max-width: 920px) {
-    padding-top: 25rem;
     margin: 0;
+    padding: 0 10rem 28rem;
   }
 }
-
 
 .services-items {
   margin-top: 75rem;
@@ -52,11 +56,6 @@
     &:active {
       transform: scale(0.98);
     }
-
-    @media (max-width: 920px) {
-      padding: 18rem;
-      border-radius: 16rem;
-    }
   }
 
   & .services-filler {
@@ -73,12 +72,6 @@
     border-radius: 50%;
     background: rgba(91, 163, 187, 0.12);
     transition: transform $transition-base $ease-out, background $transition-base $ease-out;
-
-    @media (max-width: 920px) {
-      width: 22rem;
-      height: 22rem;
-      padding: 9rem;
-    }
   }
 
   & .services-item:hover img {
@@ -92,11 +85,6 @@
     color: #000;
     font: 400 20rem 'Manrope', sans-serif;
     letter-spacing: 0.63px;
-
-    @media (max-width: 920px) {
-      margin: 0;
-      font: 700 17rem 'Manrope', sans-serif;
-    }
   }
 
   & p {
@@ -106,50 +94,79 @@
     line-height: 36px; /* 200% */
     letter-spacing: 1.26px;
     max-width: 272rem;
-
-    @media (max-width: 920px) {
-      margin-bottom: 0;
-      margin-top: 12rem;
-      line-height: 22rem;
-    }
   }
 }
 
+// Mobile: cards switch from the desktop 3-col grid to a vertical stack
+// of icon-topped cards with a tap-activated accent bar — a distinct,
+// deliberate layout rather than a squeezed-down copy of the desktop grid.
 @media (max-width: 920px) {
   .services-items {
     grid-template-columns: 1fr;
     margin: 0;
-    gap: 12rem;
-    padding: 10rem 10rem;
+    gap: 16rem;
+    padding: 0 10rem;
   }
-}
 
-@media (max-width: 920px) {
   .services-item {
+    position: relative;
     display: flex;
-    gap: 12rem;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 26rem 22rem 26rem 26rem;
+    border-radius: 18rem;
+    overflow: hidden;
+    transition: transform 0.25s $ease-out, box-shadow 0.25s $ease-out;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4rem;
+      background: linear-gradient(180deg, #5BA3BB, rgba(91, 163, 187, 0.25));
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.45s $ease-out;
+    }
+
+    &:active {
+      transform: scale(0.98);
+      box-shadow: 0 12rem 28rem rgba(91, 163, 187, 0.16);
+
+      &::before {
+        transform: scaleY(1);
+      }
+    }
 
     & > img {
-      margin: 0;
-      flex-shrink: 0;
+      width: 26rem;
+      height: 26rem;
+      padding: 11rem;
+      margin: 0 0 16rem;
     }
 
     & > h3 {
-      flex: 1;
+      width: 100%;
+      margin: 0 0 8rem;
+      font: 700 18rem 'Manrope', sans-serif;
+      letter-spacing: 0.2px;
     }
 
     & > p {
-      flex-basis: 100%;
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      font: 400 15rem 'Manrope', sans-serif;
+      line-height: 23rem;
+      letter-spacing: 0.3px;
     }
   }
-}
 
-@media (max-width: 920px) {
   .service-title-text {
-    padding: 25rem 10rem 25rem 10rem;
-    line-height: 30rem;
-    font-size: 27rem;
+    padding: 0;
+    line-height: 32rem;
+    font-size: 28rem;
   }
 }

@@ -1,150 +1,220 @@
 @import 'variables';
 
-.team-logo {
-  margin-bottom: 20rem;
-  margin-top: 35rem;
-
-  & img {
-    max-width: 520rem;
-    min-height: 250rem;
-    box-shadow: 10rem 8rem #5BA3BBaa;
-    transition: transform $transition-slow $ease-out;
-    @media (max-width: 920px) {
-      width: 100%;
-      height: auto;
-      box-shadow: 0 0 0;
-      border-radius: 10%;
-    }
-  }
-
-  &:hover img {
-    transform: translateY(-6rem);
-  }
+#team {
+  padding-bottom: 60rem;
+  overflow: hidden;
 }
 
-.team-info {
-  margin-left: 223rem;
+.team-header {
   max-width: 640rem;
+  margin-bottom: 80rem;
+
   @media (max-width: 920px) {
-    margin: 0;
+    margin-bottom: 40rem;
+    padding: 0 10rem;
+    text-align: center;
   }
 
   & h2 {
-    color: #282828;
-    font: 700 64rem 'Manrope', sans-serif;
-    letter-spacing: -0.64rem;
-    @media  (max-width: 920px) {
-      font-size: 24rem;
-      line-height: 30rem;
-      padding: 10rem 10rem;
-      text-align: center;
-    }
-  }
-
-  & p {
-    color: #A7ADAF;
-    font: 400 18rem 'Manrope', sans-serif;
-    line-height: 36px; /* 200% */
-    max-width: 560rem;
-    margin-top: 40rem;
-    margin-bottom: 70rem;
     @media (max-width: 920px) {
-      line-height: 25rem; /* 200% */
-      padding: 10rem 10rem;
-      margin: 0;
+      font-size: 28rem;
+      line-height: 1.3;
     }
   }
 }
 
-.team-title {
-  font: 700 26rem 'Manrope', sans-serif;
-  line-height: 35rem;
-  padding: 10rem 20rem;
-  @media (max-width: 920px) {
-    font: 700 36rem 'Manrope', sans-serif;
-  }
-}
-
-span {
+.team-eyebrow {
+  display: inline-block;
   color: $text-color-2;
+  font: 700 12rem 'Manrope', sans-serif;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 16rem;
 }
 
-.team-logo2 {
-  margin-left: 160rem;
-  margin-bottom: 20rem;
-  border-radius: 20%;
+.team-row {
+  padding: 56rem 0;
+  border-bottom: 1px solid rgba(40, 40, 40, 0.08);
 
-
-  & img {
-    max-width: 500rem;
-    min-height: 250rem;
-    box-shadow: 10rem 8rem #5BA3BBaa;
-    transition: transform $transition-slow $ease-out;
-    @media (max-width: 920px) {
-      width: 330rem;
-      height: auto;
-      box-shadow: 0 0 0;
-      border-radius: 10%;
-    }
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
   }
 
-  &:hover img {
-    transform: translateY(-6rem);
-  }
-}
-
-.team-logo3 {
-  margin-bottom: 35rem;
-
-  & img {
-    max-width: 460rem;
-    min-height: 250rem;
-    box-shadow: 10rem 8rem #5BA3BBaa;
-    transition: transform $transition-slow $ease-out;
-    @media (max-width: 920px) {
-      width: 100%;
-      height: auto;
-      box-shadow: 0 0 0;
-      border-radius: 10%;
-    }
-  }
-
-  &:hover img {
-    transform: translateY(-6rem);
-  }
-}
-
-@media (max-width: 920px) {
-  #team .container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-@media (max-width: 920px) {
-  #team  {
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-
-
-.team {
-  padding-bottom: 100rem;
-}
-
-
-@media (max-width: 920px) {
-  .team-info {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-
-.main-title-ua {
   @media (max-width: 920px) {
-    height: 125rem;
+    flex-direction: column;
+    // .team-row also carries the global .flex class (align-items: center),
+    // which on the column axis stops children from stretching to full
+    // width — without this, .team-photo's width:100% has no definite
+    // width to resolve against and falls back to the photo's own aspect
+    // ratio, making narrower/taller photos render visibly smaller.
+    align-items: stretch;
+    padding: 32rem 0;
+  }
+
+  // .flex-reverse (global utility, row-reverse) is declared after this
+  // partial in the compiled stylesheet and shares the same specificity,
+  // so on mobile it would otherwise win and keep the row laid out
+  // side-by-side instead of stacked — pin it down explicitly here.
+  &.flex-reverse {
+    @media (max-width: 920px) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+}
+
+.team-card {
+  position: relative;
+  flex-shrink: 0;
+
+  @media (max-width: 920px) {
+    // Belt-and-suspenders alongside .team-row's align-items:stretch:
+    // flex items get an implicit min-width:auto that can still let
+    // content (the photo) dictate width in some engines, so pin both
+    // an explicit width and min-width:0 to force the full-bleed layout.
+    width: 100%;
+    min-width: 0;
+  }
+
+  // hover glow — desktop only: touch devices don't get a real hover
+  // state anyway, and filter:blur is expensive to composite on mobile
+  // GPUs while the card's own reveal animation is also running.
+  @media (min-width: 921px) {
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -40rem;
+      background: radial-gradient(circle, rgba(91, 163, 187, 0.28), transparent 70%);
+      filter: blur(30rem);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity $transition-slow $ease-out;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+}
+
+.team-photo {
+  width: 420rem;
+  height: 480rem;
+  border-radius: 24rem;
+  overflow: hidden;
+  box-shadow: 0 30rem 60rem rgba(40, 40, 40, 0.15);
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-slow $ease-out;
+  }
+
+  @media (max-width: 920px) {
+    width: 100%;
+    min-width: 0;
+    height: 320rem;
+    border-radius: 16rem;
+  }
+}
+
+.team-card:hover .team-photo img {
+  transform: scale(1.06);
+}
+
+.team-info {
+  margin-left: 96rem;
+  max-width: 560rem;
+
+  @media (max-width: 920px) {
+    margin: 24rem 0 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.team-row.flex-reverse .team-info {
+  margin-left: 0;
+  margin-right: 96rem;
+
+  @media (max-width: 920px) {
+    margin: 24rem 0 0;
+  }
+}
+
+.team-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 8rem;
+  padding: 6rem 16rem;
+  border-radius: 100rem;
+  background: rgba(91, 163, 187, 0.12);
+  color: $text-color-2;
+  font: 700 11rem 'Manrope', sans-serif;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  margin-bottom: 20rem;
+
+  &::before {
+    content: '';
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: $text-color-2;
+  }
+}
+
+.team-info h3 {
+  color: $text-color-1;
+  font: 700 40rem 'Manrope', sans-serif;
+  letter-spacing: -0.4px;
+  line-height: 1.15;
+  margin-bottom: 20rem;
+
+  @media (max-width: 920px) {
+    font-size: 24rem;
+  }
+}
+
+.team-info p {
+  color: #A7ADAF;
+  font: 400 16rem 'Manrope', sans-serif;
+  line-height: 1.8;
+
+  @media (max-width: 920px) {
+    font-size: 15rem;
+    line-height: 1.6;
+  }
+}
+
+.team-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 32rem;
+  color: $text-color-2;
+  font: 700 10rem 'Manrope', sans-serif;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  border-bottom: 2px solid $text-color-2;
+  padding-bottom: 6rem;
+  transition: opacity $transition-fast $ease-out;
+
+  &::after {
+    margin-left: 12rem;
+    display: inline-block;
+    width: 10rem;
+    height: 8rem;
+    content: '';
+    background: url('../img/arrow.svg');
+    background-size: 10rem 8rem;
+  }
+
+  &:hover {
+    opacity: 0.7;
   }
 }

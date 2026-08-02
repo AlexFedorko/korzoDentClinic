@@ -83,9 +83,6 @@ gulp.task('images:build', function () {
 	return gulp
 		.src('./src/img/**/*')
 		.pipe(changed('./build/img/'))
-		.pipe(gulp.dest('./build/img/'))
-		.pipe(gulp.src('./src/img/**/*'))
-		.pipe(changed('./build/img/'))
 		.pipe(imagemin({ verbose: true }))
 		.pipe(gulp.dest('./build/img/'));
 });
@@ -110,6 +107,15 @@ gulp.task('files:build', function () {
 		.src('./src/files/**/*')
 		.pipe(changed('./build/files/'))
 		.pipe(gulp.dest('./build/files/'));
+});
+
+// robots.txt, sitemap.xml, favicons, manifest — must live at the site
+// root (e.g. /robots.txt), unlike files:build's ./build/files/ nesting.
+gulp.task('root:build', function () {
+	return gulp
+		.src('./src/root/*', { allowEmpty: true })
+		.pipe(changed('./build/'))
+		.pipe(gulp.dest('./build/'));
 });
 
 gulp.task('js:build', function () {

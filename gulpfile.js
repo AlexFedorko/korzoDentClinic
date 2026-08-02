@@ -17,7 +17,7 @@ gulp.task(
 	'build',
 	gulp.series(
 		'clean:build',
-		gulp.parallel('html:build', 'sass:build', 'images:build', 'images:webp', 'fonts:build', 'files:build', 'js:build'),
+		gulp.parallel('html:build', 'sass:build', 'images:build', 'images:webp', 'fonts:build', 'files:build', 'root:build', 'js:build'),
 		gulp.parallel('server:build')
 	)
 );

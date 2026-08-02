@@ -10,10 +10,25 @@
 @import "footer";
 @import "lightbox";
 @import "cta-float";
+@import "legal";
 
 body {
   font-family: "Manrope", sans-serif;
   scroll-behavior: smooth;
+
+  // Compensates for .header switching to position:fixed on mobile (see
+  // _header.scss) — it no longer reserves its own space in the document
+  // flow, so content needs this padding to not start underneath it.
+  @media (max-width: 920px) {
+    padding-top: 96rem;
+  }
+}
+
+@media (max-width: 920px) {
+  section[id],
+  footer[id] {
+    scroll-margin-top: 96rem;
+  }
 }
 
 

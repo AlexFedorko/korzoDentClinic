@@ -5,7 +5,6 @@ html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   scroll-behavior: smooth;
-  overflow-x: hidden;
   max-width: 100%;
 }
 
@@ -389,8 +388,12 @@ template {
 
 /*Mobile: */
 @media (max-width: $width-for-mobile) {
+  // !important is intentional: .only-desktop is a visibility utility and
+  // must always win, even when combined with .flex/.flex-between (equal
+  // specificity, declared later in the compiled stylesheet) on the same
+  // element — otherwise display:flex silently keeps it visible on mobile.
   .only-desktop {
-    display: none;
+    display: none !important;
   }
 }
 
