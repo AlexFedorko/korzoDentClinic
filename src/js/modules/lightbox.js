@@ -9,6 +9,10 @@ export function initLightbox() {
     const closeBtn = lightbox.querySelector('.lightbox-close');
     const prevBtn = lightbox.querySelector('.lightbox-prev');
     const nextBtn = lightbox.querySelector('.lightbox-next');
+    // Only the original slides (not Swiper's loop-mode clones), keyed by
+    // the data-index each img carries — clones are literal DOM copies so
+    // they carry the same data-index, letting delegated clicks below
+    // resolve back to the right slide regardless of which node was clicked.
     const slides = Array.from(document.querySelectorAll('.mySwiper .swiper-slide img'));
 
     if (!slides.length) return;
@@ -37,8 +41,12 @@ export function initLightbox() {
         document.body.classList.remove('lightbox-active');
     };
 
-    slides.forEach((img, index) => {
-        img.addEventListener('click', () => open(index));
+    document.addEventListener('click', (e) => {
+        const img = e.target.closest('.mySwiper .swiper-slide img');
+        if (!img) return;
+        const index = Number(img.dataset.index);
+        if (Number.isNaN(index)) return;
+        open(index);
     });
 
     closeBtn?.addEventListener('click', close);

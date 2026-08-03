@@ -1,30 +1,92 @@
 @import "variables";
 
-.swiper {
-  width: 1000rem;
-  height: 550rem;
-  border-radius: 5%;
-  margin-bottom: 125rem;
+#photos {
+  padding: 110rem 0 120rem;
+  overflow: hidden;
+
   @media (max-width: 920px) {
-    width: 100%;
-    height: 320rem;
-    margin-top: 30rem;
-    margin-bottom: 40rem;
-    border-radius: 16rem;
+    padding: 56rem 0 64rem;
+  }
+}
+
+.photos-header {
+  max-width: 640rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 64rem;
+  text-align: center;
+
+  @media (max-width: 920px) {
+    margin-bottom: 32rem;
+    padding: 0 10rem;
+  }
+
+  & h2 {
+    @media (max-width: 920px) {
+      font-size: 28rem;
+      line-height: 1.3;
+    }
+  }
+}
+
+.photos-eyebrow {
+  display: inline-block;
+  color: $text-color-2;
+  font: 700 12rem 'Manrope', sans-serif;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 16rem;
+}
+
+.photos-slider-wrap {
+  position: relative;
+
+  // Defined here (the shared ancestor of both .swiper and the
+  // now-sibling .swiper-pagination — see below) so both inherit it;
+  // Swiper's pagination markup lives outside .swiper on purpose, to
+  // escape its overflow:hidden and sit in normal flow below the cards.
+  --swiper-pagination-color: #{$text-color-2};
+  --swiper-pagination-bullet-inactive-color: #{$text-color-1};
+  --swiper-pagination-bullet-inactive-opacity: 0.16;
+  --swiper-pagination-bullet-horizontal-gap: 5rem;
+}
+
+.swiper {
+  width: 100%;
+  padding: 12rem 4rem 16rem;
+
+  @media (max-width: 920px) {
+    padding: 8rem 0 12rem;
   }
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  height: auto;
+  opacity: 0.45;
+  transform: scale(0.9);
+  transition: opacity $transition-slow $ease-out, transform $transition-slow $ease-out;
+
+  &.swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-.swiper-slide img {
+.photo-card {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 24rem;
+  overflow: hidden;
+  box-shadow: 0 20rem 50rem rgba(40, 40, 40, 0.14);
+
+  @media (max-width: 920px) {
+    aspect-ratio: 5 / 4;
+    border-radius: 16rem;
+    box-shadow: 0 12rem 28rem rgba(40, 40, 40, 0.14);
+  }
+}
+
+.photo-card img {
   display: block;
   width: 100%;
   height: 100%;
@@ -33,6 +95,73 @@
   transition: transform $transition-slow $ease-out;
 }
 
-.swiper-slide:hover img {
+.swiper-slide-active .photo-card img:hover {
   transform: scale(1.05);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 56rem;
+  height: 56rem;
+  border-radius: 50%;
+  border: 0;
+  background: #fff;
+  color: $text-color-1;
+  font-size: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12rem 30rem rgba(40, 40, 40, 0.18);
+  transition: background $transition-fast $ease-out, color $transition-fast $ease-out, transform $transition-fast $ease-out;
+
+  &::after {
+    content: none;
+  }
+
+  &:hover {
+    background: $text-color-2;
+    color: #fff;
+    transform: translateY(-50%) scale(1.08);
+  }
+
+  @media (max-width: 920px) {
+    display: none;
+  }
+}
+
+.swiper-button-prev {
+  left: 16rem;
+}
+
+.swiper-button-next {
+  right: 16rem;
+}
+
+.swiper-pagination {
+  position: static;
+  margin-top: 24rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 920px) {
+    margin-top: 16rem;
+  }
+}
+
+// Explicit size/shape rather than relying solely on Swiper's own
+// --swiper-pagination-bullet-size var: as a flex item (see above) an
+// empty <span> with no intrinsic content would otherwise collapse to
+// width:0 whenever that var fails to resolve.
+.swiper-pagination-bullet {
+  width: 9rem;
+  height: 9rem;
+  flex-shrink: 0;
 }
